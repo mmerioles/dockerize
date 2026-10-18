@@ -1,0 +1,36 @@
+# Builds Dockerize.dmg and attaches it to a GitHub release.
+# Push a tag to publish:  git tag v0.1.0 && git push origin v0.1.0
+name: Release DMG
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to build and publish (for example v0.1.0)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  dmg:
+    runs-on: macos-15
+    env:
+      TAG: ${{ github.event.inputs.tag || github.ref_name }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Show toolchain
+        run: swift --version
+      - name: Build DMG
+        run: scripts/build-dmg.sh "$TAG"
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/Dockerize.dmg --clobber
+          else
+            gh release create "$TAG" dist/Dockerize.dmg --title "Dockerize ${TAG#v}" --generate-notes --target "$GITHUB_SHA"
+          fi
