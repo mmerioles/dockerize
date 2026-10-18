@@ -8,7 +8,8 @@
   <meta property="og:title" content="Dockerize · Learn Docker by using it">
   <meta property="og:description" content="A free Mac app with a real shell and the docker CLI built in. 20 lessons, 115 missions, checked against the live engine.">
   <meta property="og:image" content="assets/lesson.png">
-  <meta name="theme-color" content="#0c0c0e">
+  <meta name="theme-color" content="#0a0b0d">
+  <meta name="color-scheme" content="dark">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/icon.png">
   <link rel="stylesheet" href="styles.css">
@@ -34,9 +35,9 @@
   <!-- Hero -->
   <div class="hero">
     <div class="wrap">
-      <span class="eyebrow">Free and open source · macOS</span>
-      <h1>Learn Docker by <span class="mark">using it.</span></h1>
-      <p class="lede">Dockerize is a Mac app with a real shell and the <code>docker</code> CLI built in. Read a short lesson, then run real containers in the terminal right beside it. Dockerize checks your work against the live Docker engine.</p>
+      <p class="eyebrow">Free and open source · macOS</p>
+      <h1>Learn Docker by <span class="mark">using&nbsp;it.</span></h1>
+      <p class="lede">A Mac app with a real shell and the <code>docker</code> CLI built in. Read a short lesson, run real containers right beside it, and Dockerize checks your work against the live engine.</p>
       <div class="ctas">
         <a class="btn btn-brand" href="https://github.com/mmerioles/dockerize/releases/latest/download/Dockerize.dmg">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v8.5M4.5 7.5 8 11l3.5-3.5M3 13.5h10"/></svg>
@@ -47,258 +48,186 @@
           View on GitHub
         </a>
       </div>
-      <p class="fine">Universal app for Apple silicon and Intel · macOS 14 Sonoma or later · Works with OrbStack, Docker Desktop or Colima</p>
-      <div class="shot">
-        <div class="window"><img src="assets/lesson.png" width="2880" height="1800" alt="Dockerize showing the 'Your first Dockerfile' lesson on the left and a shell on the right running cat Dockerfile and docker images."></div>
-      </div>
+      <p class="fine">Universal · macOS 14 Sonoma or later · Works with OrbStack, Docker Desktop or Colima</p>
     </div>
-  </div>
-
-  <div class="stats">
-    <div class="wrap">
-      <div class="stat"><b>20</b><span>lessons</span></div>
-      <div class="stat"><b>115</b><span>hands-on missions</span></div>
-      <div class="stat"><b>8</b><span>topics, first run to debugging</span></div>
-      <div class="stat"><b>0</b><span>accounts or sign-ups</span></div>
+    <div class="wrap wide">
+      <figure class="shot hero-shot"><img src="assets/lesson.png" width="2880" height="1800" alt="Dockerize showing the 'Your first Dockerfile' lesson on the left and a shell on the right running cat Dockerfile and docker images."></figure>
+      <ul class="stats" aria-label="At a glance">
+        <li><b>20</b> lessons</li>
+        <li><b>115</b> hands-on missions</li>
+        <li><b>8</b> topics</li>
+        <li><b>0</b> accounts or sign-ups</li>
+      </ul>
     </div>
   </div>
 
   <!-- How it works -->
   <section id="how">
     <div class="wrap">
-      <div class="section-head">
-        <span class="kicker">How it works</span>
+      <div class="head">
+        <p class="kicker">How it works</p>
         <h2>Read a little, run a lot.</h2>
-        <p>Every lesson follows the same loop, so you spend your time running containers instead of reading about them.</p>
       </div>
-      <div class="steps">
-        <div class="card step">
-          <span class="num">1</span>
+      <ol class="steps">
+        <li>
+          <span class="num">01</span>
           <h3>Read the lesson</h3>
-          <p>Short explanations with real examples and a diagram of what's going on. Hit <b>Try it</b> on any example and Dockerize types it into the shell for you.</p>
-        </div>
-        <div class="card step">
-          <span class="num">2</span>
+          <p>Short explanations, real examples and a diagram of what's going on. <b>Try it</b> types any example into the shell for you.</p>
+        </li>
+        <li>
+          <span class="num">02</span>
           <h3>Run it yourself</h3>
-          <p>The shell next to the lesson is real bash with the real <span class="ic">docker</span> CLI. Each lesson gets its own folder with Dockerfiles, app code and <span class="ic">compose.yaml</span> files ready to go.</p>
-        </div>
-        <div class="card step">
-          <span class="num">3</span>
+          <p>Real bash with the real <span class="ic">docker</span> CLI. Each lesson has its own folder of Dockerfiles, app code and <span class="ic">compose.yaml</span> files.</p>
+        </li>
+        <li>
+          <span class="num">03</span>
           <h3>Clear the missions</h3>
-          <p>Dockerize asks the engine what's actually there: is <span class="ic">dz-web</span> running, does it publish 8080, is it on <span class="ic">dz-net</span>. Hints and solutions are there if you're stuck.</p>
-        </div>
-      </div>
+          <p>Dockerize asks the engine what's actually there: is <span class="ic">dz-web</span> running, does it publish 8080, is it on <span class="ic">dz-net</span>.</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- Features -->
-  <section id="features" class="alt">
+  <section id="features">
     <div class="wrap">
-      <div class="section-head">
-        <span class="kicker">Features</span>
-        <h2>Everything you need, nothing in the way.</h2>
-      </div>
-
       <div class="feature">
         <div class="feature-text">
-          <span class="kicker">Missions</span>
+          <p class="kicker">Missions</p>
           <h3>Checked against the engine, not your typing.</h3>
-          <p>The mission bar shows the one task you're on, with a progress bar for the lesson. There's no quiz and no string matching. You pass when the container, image, volume or network really exists the way the mission asks.</p>
-          <ul class="ticks">
-            <li>Any command that gets the result counts, typos and all</li>
-            <li>Hints and full solutions stay hidden until you ask for them</li>
-            <li>Collapse the sidebar for a focused, two-pane view</li>
-            <li>Progress is saved, so you can pick up where you left off</li>
-          </ul>
+          <p>No quizzes, no string matching. You pass when the container, image, volume or network really exists the way the mission asks, so any command that gets there counts. Hints and solutions stay hidden until you ask, and progress is saved.</p>
         </div>
-        <div class="window light"><img src="assets/focus.png" width="2880" height="1800" loading="lazy" alt="The 'Networks &amp; DNS' lesson with the sidebar collapsed. The mission bar reads 'Mission 3/6: From another container on dz-net, ping redis by name', and the shell shows docker network ls and docker ps."></div>
+        <figure class="shot"><img src="assets/focus.png" width="2880" height="1800" loading="lazy" alt="The 'Networks &amp; DNS' lesson with the sidebar collapsed. The mission bar reads 'Mission 3/6: From another container on dz-net, ping redis by name', and the shell shows docker network ls and docker ps."></figure>
       </div>
 
       <div class="feature flip">
         <div class="feature-text">
-          <span class="kicker">Diagrams</span>
+          <p class="kicker">Diagrams</p>
           <h3>See what's happening under the hood.</h3>
-          <p>Every lesson has a Diagram tab that shows the mechanism behind the commands: how the client talks to the daemon, how layers stack up, how containers find each other by name on a network.</p>
-          <ul class="ticks">
-            <li>20 diagrams, one per lesson</li>
-            <li>A Reference tab with the flags you'll actually use</li>
-            <li>Mac notes on what's different when Docker runs in a Linux VM</li>
-          </ul>
+          <p>Every lesson has a diagram of the mechanism behind the commands: how the client talks to the daemon, how layers stack, how containers find each other by name. Plus a Reference tab with the flags you'll actually use, and notes on what's different when Docker runs in a Linux VM on your Mac.</p>
         </div>
-        <div class="figure-diagram"><img src="assets/diagram-networks.png" loading="lazy" alt="Diagram of a user-defined network: dz-net-cache and dz-net-web on dz-net resolve each other through Docker's embedded DNS, while a container on the default bridge can't resolve names."></div>
+        <figure class="diagram"><img src="assets/diagram-networks.png" width="2128" height="1046" loading="lazy" alt="Diagram of a user-defined network: dz-net-cache and dz-net-web on dz-net resolve each other through Docker's embedded DNS, while a container on the default bridge can't resolve names."></figure>
       </div>
 
       <div class="feature">
         <div class="feature-text">
-          <span class="kicker">Engine</span>
+          <p class="kicker">Engine</p>
           <h3>Your whole engine on one page.</h3>
-          <p>The Engine page lists your containers, images, volumes and networks live, so you can watch them appear as you work. Actions like stop, remove or inspect type the matching command into the shell, so you learn the command as you click.</p>
-          <ul class="ticks">
-            <li>Updates on its own, or press <kbd>⌘</kbd> <kbd>R</kbd> to refresh</li>
-            <li>Lab resources named <span class="ic">dz-…</span> are easy to spot</li>
-            <li>Engine down? Start OrbStack, Docker Desktop or Rancher Desktop from here</li>
-          </ul>
+          <p>Containers, images, volumes and networks, live, so you can watch them appear as you work. Stop, remove or inspect types the matching command into the shell, so you learn the command as you click. Engine down? Start it from here.</p>
         </div>
-        <div class="window light"><img src="assets/engine.png" width="2880" height="1800" loading="lazy" alt="The Dockerize Engine page listing containers, images, volumes and networks on the running Docker engine."></div>
+        <figure class="shot"><img src="assets/engine.png" width="2880" height="1800" loading="lazy" alt="The Dockerize Engine page listing containers, images, volumes and networks on the running Docker engine."></figure>
       </div>
 
-      <div class="feature flip">
-        <div class="feature-text">
-          <span class="kicker">Cheat sheet</span>
-          <h3>Every command, one search away.</h3>
-          <p>The cheat sheet collects every command and flag from every lesson in one searchable list. Forgot how to bind a port to localhost or prune build cache? Type a word and it's there.</p>
-        </div>
-        <div class="window light"><img src="assets/cheatsheet.png" width="2880" height="1800" loading="lazy" alt="The Dockerize cheat sheet: a searchable list of docker commands and flags, grouped by lesson."></div>
+      <div class="trio">
+        <figure>
+          <div class="shot"><img src="assets/roadmap.png" width="2880" height="1800" loading="lazy" alt="The Dockerize roadmap: a vertical path of lessons from 'What is Docker?' through Running Containers, each with its topics."></div>
+          <figcaption><b>Roadmap.</b> Every lesson in order, with what you've finished marked off.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="assets/cheatsheet.png" width="2880" height="1800" loading="lazy" alt="The Dockerize cheat sheet: a searchable list of docker commands and flags, grouped by lesson."></div>
+          <figcaption><b>Cheat sheet.</b> Every command and flag from every lesson, one search away.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="assets/dashboard.png" width="2880" height="1800" loading="lazy" alt="The Dockerize dashboard with quick actions, engine details and per-topic progress bars."></div>
+          <figcaption><b>Dashboard.</b> Progress per topic, engine status, and a way straight back in.</figcaption>
+        </figure>
       </div>
 
-      <div class="feature">
-        <div class="feature-text">
-          <span class="kicker">Roadmap</span>
-          <h3>A clear path from first container to Compose.</h3>
-          <p>The roadmap lays out every lesson and topic in order, with what you've finished marked off. Work top to bottom, or jump to whatever you need today.</p>
-        </div>
-        <div class="window light"><img src="assets/roadmap.png" width="2880" height="1800" loading="lazy" alt="The Dockerize roadmap: a vertical path of lessons from 'What is Docker?' through Running Containers, each with its topics."></div>
-      </div>
-
-      <div class="feature flip">
-        <div class="feature-text">
-          <span class="kicker">Dashboard</span>
-          <h3>Always know what's next.</h3>
-          <p>The dashboard shows your progress through each topic and the state of your engine, and takes you straight back into the lesson you were working on.</p>
-        </div>
-        <div class="window light"><img src="assets/dashboard.png" width="2880" height="1800" loading="lazy" alt="The Dockerize dashboard with quick actions, engine details and per-topic progress bars."></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head center">
-        <span class="kicker">The details</span>
-        <h2>Built for practice.</h2>
-      </div>
-      <div class="grid">
-        <div class="card tile">
-          <span class="icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2.5" width="13" height="11" rx="2"/><path d="m4.5 6.5 2 1.5-2 1.5M8.5 10h3"/></svg></span>
+      <div class="details">
+        <div>
           <h3>A real shell, a real engine</h3>
-          <p>Not a simulator. It's <span class="ic">/bin/bash</span> and the <span class="ic">docker</span> CLI talking to your own engine, using your normal Docker config and context.</p>
+          <p>Not a simulator. <span class="ic">/bin/bash</span> and the <span class="ic">docker</span> CLI talking to your own engine, with your normal config and context.</p>
         </div>
-        <div class="card tile">
-          <span class="icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 4.5a1 1 0 0 1 1-1h3.5l1.5 1.5h6a1 1 0 0 1 1 1v6.5a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1z"/></svg></span>
+        <div>
           <h3>Its own home folder</h3>
-          <p>The shell's <span class="ic">$HOME</span> is a sandbox with one workspace per lesson, so your own files stay out of the way. Reset a lesson to get its starting files back.</p>
+          <p>The shell's <span class="ic">$HOME</span> is a sandbox with one workspace per lesson. Reset a lesson to get its starting files back.</p>
         </div>
-        <div class="card tile">
-          <span class="icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h7M6 8h7M6 12.5h7M2.5 3.5h.5M2.5 8h.5M2.5 12.5h.5"/></svg></span>
-          <h3>Try it buttons</h3>
-          <p>Examples type themselves into the prompt without pressing Return, so you can read and tweak them first.</p>
-        </div>
-        <div class="card tile">
-          <span class="icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8.5M4.5 7.5 8 11l3.5-3.5M3 13.5h10"/></svg></span>
+        <div>
           <h3>Ready in one click</h3>
-          <p>Each lesson offers to pull the images it needs. If the engine is off, <b>Start Docker</b> opens OrbStack, Docker Desktop or Rancher Desktop, or types <span class="ic">colima start</span> for you.</p>
+          <p>Lessons offer to pull the images they need. <b>Start Docker</b> opens OrbStack, Docker Desktop or Rancher Desktop, or types <span class="ic">colima start</span>.</p>
         </div>
-        <div class="card tile">
-          <span class="icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5h11M6 4.5V3h4v1.5M4 4.5l.7 9h6.6l.7-9M6.8 7v4M9.2 7v4"/></svg></span>
+        <div>
           <h3>Cleans up after itself</h3>
-          <p>Everything the lessons create is named <span class="ic">dz-…</span>. <b>Docker → Clean Up Lab Resources</b> removes only those and leaves the rest of your engine alone.</p>
+          <p>Everything the lessons create is named <span class="ic">dz-…</span>. <b>Clean Up Lab Resources</b> removes only those.</p>
         </div>
-        <div class="card tile">
-          <span class="icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="4" width="13" height="8.5" rx="1.5"/><path d="M4 6.5h1M7 6.5h1M10 6.5h2M4 9.5h8"/></svg></span>
+        <div>
+          <h3>Try it, then tweak</h3>
+          <p>Examples type themselves into the prompt without pressing Return, so you can read and edit them first.</p>
+        </div>
+        <div>
           <h3>Keyboard friendly</h3>
-          <p><kbd>⌘</kbd> <kbd>1</kbd>–<kbd>4</kbd> jump to Dashboard, Roadmap, Engine and Cheat sheet. <kbd>⌘</kbd> <kbd>[</kbd> and <kbd>⌘</kbd> <kbd>]</kbd> move between lessons, and <kbd>⌘</kbd> <kbd>\</kbd> hides the sidebar.</p>
+          <p><kbd>⌘1</kbd>–<kbd>⌘4</kbd> switch pages, <kbd>⌘[</kbd> <kbd>⌘]</kbd> move between lessons, <kbd>⌘\</kbd> hides the sidebar.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Curriculum -->
-  <section id="curriculum" class="alt">
+  <section id="curriculum">
     <div class="wrap">
-      <div class="section-head">
-        <span class="kicker">Curriculum</span>
+      <div class="head">
+        <p class="kicker">Curriculum</p>
         <h2>The Docker every engineer uses.</h2>
-        <p>Eight topics, ordered so each one builds on the last, from your first <span class="ic">docker run</span> to Compose, registries and debugging.</p>
+        <p>Eight topics, each building on the last, from your first <span class="ic">docker run</span> to Compose, registries and debugging.</p>
       </div>
-      <div class="curriculum">
-        <div class="card topic"><span class="n">01</span><h3>Getting Started</h3><p>What Docker is, how the pieces talk to each other, and the difference between an image and a container.</p><div class="badges"><span class="badge">2 lessons</span><span class="badge y">9 missions</span></div></div>
-        <div class="card topic"><span class="n">02</span><h3>Running Containers</h3><p>Run containers the way you will every day, manage their lifecycle, and look inside them.</p><div class="badges"><span class="badge">3 lessons</span><span class="badge y">18 missions</span></div></div>
-        <div class="card topic"><span class="n">03</span><h3>Images &amp; Dockerfiles</h3><p>Pull, tag and inspect images, then write Dockerfiles that build fast and ship small.</p><div class="badges"><span class="badge">4 lessons</span><span class="badge y">22 missions</span></div></div>
-        <div class="card topic"><span class="n">04</span><h3>Data &amp; Storage</h3><p>Keep data alive past <span class="ic">docker rm</span> with volumes, and edit code live with bind mounts.</p><div class="badges"><span class="badge">2 lessons</span><span class="badge y">12 missions</span></div></div>
-        <div class="card topic"><span class="n">05</span><h3>Networking</h3><p>Publish ports to your Mac and let containers find each other by name.</p><div class="badges"><span class="badge">2 lessons</span><span class="badge y">12 missions</span></div></div>
-        <div class="card topic"><span class="n">06</span><h3>Docker Compose</h3><p>Describe a whole app in one <span class="ic">compose.yaml</span> and run it with one command.</p><div class="badges"><span class="badge">3 lessons</span><span class="badge y">18 missions</span></div></div>
-        <div class="card topic"><span class="n">07</span><h3>Sharing Images</h3><p>Tag, push and pull images through a registry, or carry them as a tar file.</p><div class="badges"><span class="badge">1 lesson</span><span class="badge y">6 missions</span></div></div>
-        <div class="card topic"><span class="n">08</span><h3>Day-to-Day Operations</h3><p>Reclaim disk space, debug crashing containers, and set limits and restart policies.</p><div class="badges"><span class="badge">3 lessons</span><span class="badge y">18 missions</span></div></div>
-      </div>
+      <ol class="topics">
+        <li><span class="n">01</span><div><h3>Getting Started</h3><p>What Docker is, how the pieces talk, and images vs. containers.</p></div><span class="meta">2 lessons · 9 missions</span></li>
+        <li><span class="n">02</span><div><h3>Running Containers</h3><p>Run, manage and look inside containers the way you will every day.</p></div><span class="meta">3 lessons · 18 missions</span></li>
+        <li><span class="n">03</span><div><h3>Images &amp; Dockerfiles</h3><p>Pull, tag and inspect images; write Dockerfiles that build fast and ship small.</p></div><span class="meta">4 lessons · 22 missions</span></li>
+        <li><span class="n">04</span><div><h3>Data &amp; Storage</h3><p>Volumes that outlive <span class="ic">docker rm</span>, and bind mounts for live code.</p></div><span class="meta">2 lessons · 12 missions</span></li>
+        <li><span class="n">05</span><div><h3>Networking</h3><p>Publish ports to your Mac and let containers find each other by name.</p></div><span class="meta">2 lessons · 12 missions</span></li>
+        <li><span class="n">06</span><div><h3>Docker Compose</h3><p>A whole app in one <span class="ic">compose.yaml</span>, run with one command.</p></div><span class="meta">3 lessons · 18 missions</span></li>
+        <li><span class="n">07</span><div><h3>Sharing Images</h3><p>Push and pull through a registry, or carry images as a tar file.</p></div><span class="meta">1 lesson · 6 missions</span></li>
+        <li><span class="n">08</span><div><h3>Day-to-Day Operations</h3><p>Reclaim disk, debug crashing containers, set limits and restart policies.</p></div><span class="meta">3 lessons · 18 missions</span></li>
+      </ol>
     </div>
   </section>
 
   <!-- Install -->
   <section id="install">
     <div class="wrap">
-      <div class="section-head">
-        <span class="kicker">Install</span>
+      <div class="head">
+        <p class="kicker">Install</p>
         <h2>Up and running in a minute.</h2>
-        <p>Dockerize comes as a standard Mac disk image (DMG). You'll also need a Docker runtime.</p>
       </div>
 
       <div class="install">
         <div>
-          <ol>
+          <ol class="install-steps">
             <li>
-              <div>
-                <h3>Install a Docker runtime</h3>
-                <p>Already have one? Skip ahead. Otherwise install <a href="https://orbstack.dev">OrbStack</a> (<span class="ic">brew install --cask orbstack</span>), <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a> or <a href="https://github.com/abiosoft/colima">Colima</a>. Dockerize finds the <span class="ic">docker</span> CLI on its own.</p>
-              </div>
+              <h3>Install a Docker runtime</h3>
+              <p>Already have one? Skip ahead. Otherwise install <a href="https://orbstack.dev">OrbStack</a> (<span class="ic">brew install --cask orbstack</span>), <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a> or <a href="https://github.com/abiosoft/colima">Colima</a>. Dockerize finds the <span class="ic">docker</span> CLI on its own.</p>
             </li>
             <li>
-              <div>
-                <h3>Download the DMG</h3>
-                <p>Get <a href="https://github.com/mmerioles/dockerize/releases/latest/download/Dockerize.dmg">Dockerize.dmg</a> from the latest GitHub release. It's one universal download for Apple silicon and Intel Macs.</p>
-              </div>
+              <h3>Download the DMG</h3>
+              <p>Get <a href="https://github.com/mmerioles/dockerize/releases/latest/download/Dockerize.dmg">Dockerize.dmg</a> from the latest GitHub release. One universal download for Apple silicon and Intel.</p>
             </li>
             <li>
-              <div>
-                <h3>Open it and drag Dockerize to Applications</h3>
-                <p>Double-click <b>Dockerize.dmg</b> in your Downloads folder. In the window that opens, drag the <b>Dockerize</b> icon onto the <b>Applications</b> folder.</p>
-              </div>
+              <h3>Drag Dockerize to Applications</h3>
+              <p>Open the DMG, drag <b>Dockerize</b> onto <b>Applications</b>, then eject the disk image in Finder's sidebar. You can delete the DMG afterwards.</p>
             </li>
             <li>
-              <div>
-                <h3>Eject the disk image</h3>
-                <p>In Finder's sidebar, click the eject button next to <b>Dockerize</b>. You can then delete the DMG.</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <h3>Open Dockerize</h3>
-                <p>Launch it from Applications, Launchpad or Spotlight (<kbd>⌘</kbd> <kbd>Space</kbd>, then type “Dockerize”). The first launch needs one extra step; see below.</p>
-              </div>
+              <h3>Open Dockerize</h3>
+              <p>Launch it from Applications, Launchpad or Spotlight (<kbd>⌘ Space</kbd>, then type “Dockerize”). The first launch needs one extra step, below.</p>
             </li>
           </ol>
 
-          <div class="alert" style="margin-top: 28px">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1.8 15 14H1z"/><path d="M8 6.5v3.2M8 11.8v.1"/></svg>
-            <div>
-              <p><b>If macOS says Dockerize can't be opened.</b> Dockerize is free and isn't notarized by Apple, so the first launch is blocked by Gatekeeper. To allow it:</p>
-              <p><b>macOS 15 Sequoia and later:</b> open Dockerize once and click <b>Done</b>. Then go to <b>System Settings → Privacy &amp; Security</b>, scroll down to the message about Dockerize, click <b>Open Anyway</b>, and confirm with your password.</p>
-              <p><b>macOS 14 Sonoma:</b> in Applications, Control-click Dockerize, choose <b>Open</b>, then click <b>Open</b> again.</p>
-              <p>You only need to do this once.</p>
-            </div>
+          <div class="note">
+            <p class="note-title">If macOS says Dockerize can't be opened</p>
+            <p>Dockerize is free and isn't notarized by Apple, so Gatekeeper blocks the first launch. You only need to allow it once.</p>
+            <p><b>macOS 15 Sequoia and later:</b> open Dockerize once and click <b>Done</b>. Then go to <b>System Settings → Privacy &amp; Security</b>, scroll to the message about Dockerize, click <b>Open Anyway</b>, and confirm with your password.</p>
+            <p><b>macOS 14 Sonoma:</b> in Applications, Control-click Dockerize, choose <b>Open</b>, then click <b>Open</b> again.</p>
           </div>
         </div>
 
-        <div class="side">
-          <div class="card">
-            <h3>Requirements</h3>
-            <ul class="reqs">
-              <li><span>macOS</span><b>14 Sonoma or later</b></li>
-              <li><span>Mac</span><b>Apple silicon or Intel</b></li>
-              <li><span>Docker</span><b>OrbStack, Docker Desktop or Colima</b></li>
-            </ul>
-          </div>
+        <aside class="side">
+          <dl class="reqs">
+            <div><dt>macOS</dt><dd>14 Sonoma or later</dd></div>
+            <div><dt>Mac</dt><dd>Apple silicon or Intel</dd></div>
+            <div><dt>Docker</dt><dd>OrbStack, Docker Desktop or Colima</dd></div>
+          </dl>
 
-          <details class="card">
+          <details>
             <summary>Prefer the Terminal?</summary>
             <div class="body">
               <p>Clear the quarantine flag after copying the app to Applications:</p>
@@ -306,7 +235,7 @@
             </div>
           </details>
 
-          <details class="card">
+          <details>
             <summary>Build from source</summary>
             <div class="body">
               <p>Needs Xcode 15.3 or later, or the Swift 5.10 toolchain.</p>
@@ -317,7 +246,7 @@ swift run</code><button class="copy" type="button">Copy</button></div>
             </div>
           </details>
 
-          <details class="card">
+          <details>
             <summary>Uninstall</summary>
             <div class="body">
               <p>First choose <b>Docker → Clean Up Lab Resources</b> in Dockerize to remove the <span class="ic">dz-…</span> containers, images, volumes and networks the lessons made. Then drag Dockerize from Applications to the Trash. To also remove your practice files and progress:</p>
@@ -326,13 +255,14 @@ defaults delete io.github.mmerioles.dockerize</code><button class="copy" type="b
               <p>Your Docker runtime and everything else on your engine stay as they were.</p>
             </div>
           </details>
-        </div>
+        </aside>
       </div>
     </div>
   </section>
 
   <div class="band">
     <div class="wrap">
+      <img class="band-icon" src="assets/icon.png" width="64" height="64" alt="">
       <h2>Open a shell and run your first container.</h2>
       <p>Free, open source, and ready in a minute.</p>
       <div class="ctas">

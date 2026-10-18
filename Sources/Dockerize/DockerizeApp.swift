@@ -137,24 +137,46 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    /// Docker-blue rounded square with a stack of shipping containers.
+    /// A blue whale carrying a stack of containers, on a dark rounded square.
     static func makeIcon(size side: CGFloat = 512) -> NSImage {
         let size = NSSize(width: side, height: side)
         let k = side / 512
-        return NSImage(size: size, flipped: false) { rect in
+        return NSImage(size: size, flipped: true) { rect in
+            guard let ctx = NSGraphicsContext.current?.cgContext else { return false }
             let inset = rect.insetBy(dx: 40 * k, dy: 40 * k)
-            let background = NSGradient(starting: NSColor(hex: 0x2496ED), ending: NSColor(hex: 0x1060FF))
-            background?.draw(in: NSBezierPath(roundedRect: inset, xRadius: 92 * k, yRadius: 92 * k), angle: -90)
-            LogoGeometry.boxes(in: inset.insetBy(dx: 72 * k, dy: 86 * k)).forEach { box in
-                NSColor.white.setFill()
-                NSBezierPath(roundedRect: box, xRadius: 10 * k, yRadius: 10 * k).fill()
-                // Corrugation lines, like a shipping container's side.
-                NSColor(hex: 0x1D63ED).withAlphaComponent(0.35).setFill()
-                let ribs = 4
-                for i in 1...ribs {
-                    let x = box.minX + box.width * CGFloat(i) / CGFloat(ribs + 1)
-                    NSBezierPath(rect: NSRect(x: x - 2.5 * k, y: box.minY + box.height * 0.2, width: 5 * k, height: box.height * 0.6)).fill()
-                }
+            let tile = CGPath(roundedRect: inset, cornerWidth: 92 * k, cornerHeight: 92 * k, transform: nil)
+            let space = CGColorSpace(name: CGColorSpace.sRGB)!
+
+            // Dark tile with a soft top-down gradient and a faint rim.
+            ctx.saveGState()
+            ctx.addPath(tile)
+            ctx.clip()
+            let bg = CGGradient(colorsSpace: space, colors: [LogoGeometry.backgroundTop.cgColor, LogoGeometry.backgroundBottom.cgColor] as CFArray, locations: [0, 1])!
+            ctx.drawLinearGradient(bg, start: CGPoint(x: 0, y: inset.minY), end: CGPoint(x: 0, y: inset.maxY), options: [])
+            // A faint blue glow behind the whale.
+            let glow = CGGradient(colorsSpace: space, colors: [NSColor(hex: 0x2496ED).withAlphaComponent(0.22).cgColor, NSColor(hex: 0x2496ED).withAlphaComponent(0).cgColor] as CFArray, locations: [0, 1])!
+            ctx.drawRadialGradient(glow, startCenter: CGPoint(x: inset.midX, y: inset.midY + 20 * k), startRadius: 0,
+                                   endCenter: CGPoint(x: inset.midX, y: inset.midY + 20 * k), endRadius: inset.width * 0.55, options: [])
+            ctx.restoreGState()
+            ctx.addPath(tile)
+            ctx.setStrokeColor(NSColor.white.withAlphaComponent(0.10).cgColor)
+            ctx.setLineWidth(2 * k)
+            ctx.strokePath()
+
+            // Whale, filled with a blue gradient.
+            let art = inset.insetBy(dx: 44 * k, dy: 44 * k).offsetBy(dx: 0, dy: 6 * k)
+            ctx.saveGState()
+            ctx.addPath(LogoGeometry.whale(in: art))
+            ctx.clip(using: .evenOdd)
+            let body = CGGradient(colorsSpace: space, colors: [LogoGeometry.whaleTop.cgColor, LogoGeometry.whaleBottom.cgColor] as CFArray, locations: [0, 1])!
+            ctx.drawLinearGradient(body, start: CGPoint(x: 0, y: art.minY + art.height * 0.4), end: CGPoint(x: 0, y: art.minY + art.height * 0.78), options: [.drawsBeforeStartLocation, .drawsAfterEndLocation])
+            ctx.restoreGState()
+
+            // Containers on its back.
+            ctx.setFillColor(NSColor.white.cgColor)
+            for box in LogoGeometry.containers(in: art) {
+                ctx.addPath(CGPath(roundedRect: box, cornerWidth: box.width * 0.14, cornerHeight: box.width * 0.14, transform: nil))
+                ctx.fillPath()
             }
             return true
         }

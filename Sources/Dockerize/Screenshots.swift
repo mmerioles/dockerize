@@ -44,13 +44,15 @@ enum Screenshots {
 
     private static let shots: [Shot] = [
         // Read-only commands only: the screenshot run talks to your real engine.
+        // They're also filtered so your own containers and images never end up
+        // in the website screenshots.
         Shot(name: "lesson", screen: .lesson("first-dockerfile"), commands: [
             "cat Dockerfile",
-            "docker images",
+            "docker image ls nginx",
         ]),
         Shot(name: "focus", screen: .lesson("networks"), collapsed: true, commands: [
-            "docker network ls",
-            "docker ps",
+            "docker network ls --filter type=builtin",
+            "docker ps --filter name=dz-",
         ]),
         Shot(name: "dashboard", screen: .dashboard),
         Shot(name: "roadmap", screen: .roadmap),

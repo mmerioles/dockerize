@@ -184,17 +184,20 @@ struct EngineView: View {
         }
     }
 
+    /// Screenshot runs only show lab resources, so nothing personal is captured.
+    private var onlyLab: Bool { labOnly || Screenshots.isActive }
+
     private func isLab(_ name: String) -> Bool {
         (name.split(separator: "/").last.map(String.init) ?? name).hasPrefix(Curriculum.prefix)
     }
 
-    private func filter(_ names: [String]) -> [String] { labOnly ? names.filter(isLab) : names }
+    private func filter(_ names: [String]) -> [String] { onlyLab ? names.filter(isLab) : names }
     private func containers(_ s: DockerState) -> [DockerState.Container] {
-        (labOnly ? s.containers.filter { isLab($0.name) } : s.containers)
+        (onlyLab ? s.containers.filter { isLab($0.name) } : s.containers)
             .sorted { ($0.isRunning ? 0 : 1, $0.name) < ($1.isRunning ? 0 : 1, $1.name) }
     }
     private func images(_ s: DockerState) -> [DockerState.Image] {
-        labOnly ? s.images.filter { isLab($0.repository) } : s.images
+        onlyLab ? s.images.filter { isLab($0.repository) } : s.images
     }
 
     @ViewBuilder
