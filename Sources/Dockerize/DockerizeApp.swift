@@ -137,7 +137,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    /// A blue whale carrying a stack of containers, on a dark rounded square.
+    /// A flat blue whale carrying a stack of containers, on a dark rounded square.
     static func makeIcon(size side: CGFloat = 512) -> NSImage {
         let size = NSSize(width: side, height: side)
         let k = side / 512
@@ -163,19 +163,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             ctx.setLineWidth(2 * k)
             ctx.strokePath()
 
-            // Whale, filled with a blue gradient.
-            let art = inset.insetBy(dx: 44 * k, dy: 44 * k).offsetBy(dx: 0, dy: 6 * k)
-            ctx.saveGState()
+            // Whale and containers in one flat blue.
+            let art = inset.insetBy(dx: 56 * k, dy: 56 * k)
+            ctx.setFillColor(LogoGeometry.blue.cgColor)
             ctx.addPath(LogoGeometry.whale(in: art))
-            ctx.clip(using: .evenOdd)
-            let body = CGGradient(colorsSpace: space, colors: [LogoGeometry.whaleTop.cgColor, LogoGeometry.whaleBottom.cgColor] as CFArray, locations: [0, 1])!
-            ctx.drawLinearGradient(body, start: CGPoint(x: 0, y: art.minY + art.height * 0.4), end: CGPoint(x: 0, y: art.minY + art.height * 0.78), options: [.drawsBeforeStartLocation, .drawsAfterEndLocation])
-            ctx.restoreGState()
-
-            // Containers on its back.
-            ctx.setFillColor(NSColor.white.cgColor)
+            ctx.fillPath()
             for box in LogoGeometry.containers(in: art) {
-                ctx.addPath(CGPath(roundedRect: box, cornerWidth: box.width * 0.14, cornerHeight: box.width * 0.14, transform: nil))
+                ctx.addPath(CGPath(roundedRect: box, cornerWidth: box.width * 0.12, cornerHeight: box.width * 0.12, transform: nil))
                 ctx.fillPath()
             }
             return true
